@@ -5,8 +5,6 @@ package textgen;
 
 import static org.junit.Assert.*;
 
-import java.util.LinkedList;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -120,6 +118,13 @@ public class MyLinkedListTester {
 
 		}
 		
+		try {
+			list1.remove(100);
+			fail("Check out of bounds");
+		} catch (IndexOutOfBoundsException e) {
+
+		}
+		
 		//Test removing first element of list
 		String b = shortList.remove(0);
 		assertEquals("Remove: check a is correct ", "A", b);
@@ -135,6 +140,15 @@ public class MyLinkedListTester {
 	@Test
 	public void testAddEnd() {
 		// TODO: implement this test
+		
+		
+		try {
+			list1.add(null);
+			fail("Check for Null");
+		} catch (NullPointerException e) {
+
+		}
+		
 
 		// Test adding element to end of list1
 		list1.add(10);
@@ -180,6 +194,21 @@ public class MyLinkedListTester {
 		} catch (IndexOutOfBoundsException e) {
 
 		}
+		
+		try {
+			list1.add(100, 10);
+			fail("Check out of bounds");
+		} catch (IndexOutOfBoundsException e) {
+
+		}
+		
+		try {
+			list1.add(1, null);
+			fail("Check for Null");
+		} catch (NullPointerException e) {
+
+		}
+		
 		//Test adding element to beginning of list
 		list1.add(0, 10);
 		int a = list1.get(0);
@@ -209,6 +238,14 @@ public class MyLinkedListTester {
 		} catch (IndexOutOfBoundsException e) {
 
 		}
+						
+		try {
+			list1.set(100, 10);
+			fail("Check out of bounds");
+		} catch (IndexOutOfBoundsException e) {
+
+		}
+		
 		int a = list1.set(0, 10);
 		assertEquals("Add: check value of list1(0) is correct ", 65, a);
 		assertEquals("Add: check value of list1(0) is correct ", (Integer) 10, list1.get(0));

@@ -33,6 +33,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public boolean add(E element) {
 		// TODO: Implement this method
+		
+		if (element == null) {
+			throw new NullPointerException("Cannot enter a null");
+		}
 
 		LLNode<E> n = new LLNode<E>(element);
 		n.next = tail.prev.next;
@@ -82,6 +86,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 		LLNode<E> current = head;
 		LLNode<E> n = new LLNode<E>(element);
+		
+		if (element == null) {
+			throw new NullPointerException("Cannot enter a null");
+		}
 
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException("Check out of bounds");
